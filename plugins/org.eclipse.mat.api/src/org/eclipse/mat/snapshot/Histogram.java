@@ -354,7 +354,7 @@ public class Histogram extends HistogramRecord implements IResultTable, IIconPro
     @Override
     public String toString()
     {
-        StringBuilder buf = new StringBuilder(1024);
+        StringBuilder buf = new StringBuilder(65536);
         buf.append(MessageUtil.format(
                         Messages.Histogram_Description, //
                         label, //

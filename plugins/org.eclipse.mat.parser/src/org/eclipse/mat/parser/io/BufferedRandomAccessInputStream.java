@@ -44,7 +44,7 @@ public class BufferedRandomAccessInputStream extends InputStream
 
     public BufferedRandomAccessInputStream(RandomAccessFile in) throws IOException
     {
-        this(in, 1024);
+        this(in, 65536);
     }
 
     public BufferedRandomAccessInputStream(RandomAccessFile in, int bufsize) throws IOException

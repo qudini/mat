@@ -32,7 +32,7 @@ public class CommonNameResolver
     {
         public String resolve(IObject obj) throws SnapshotException
         {
-            return PrettyPrinter.objectAsString(obj, 1024);
+            return PrettyPrinter.objectAsString(obj, 65536);
         }
     }
 
@@ -55,11 +55,11 @@ public class CommonNameResolver
             if (charArray.getType() == IObject.Type.BYTE)
             {
                 // Java 9 compact strings
-                return PrettyPrinter.objectAsString(obj, 1024);
+                return PrettyPrinter.objectAsString(obj, 65536);
             }
             else
             {
-                return PrettyPrinter.arrayAsString(charArray, 0, count, 1024);
+                return PrettyPrinter.arrayAsString(charArray, 0, count, 65536);
             }
         }
     }
@@ -162,7 +162,7 @@ public class CommonNameResolver
         public String resolve(IObject heapObject) throws SnapshotException
         {
             IPrimitiveArray charArray = (IPrimitiveArray) heapObject;
-            return PrettyPrinter.arrayAsString(charArray, 0, charArray.getLength(), 1024);
+            return PrettyPrinter.arrayAsString(charArray, 0, charArray.getLength(), 65536);
         }
     }
 
@@ -172,7 +172,7 @@ public class CommonNameResolver
         public String resolve(IObject heapObject) throws SnapshotException
         {
             IPrimitiveArray arr = (IPrimitiveArray) heapObject;
-            byte[] value = (byte[]) arr.getValueArray(0, Math.min(arr.getLength(), 1024));
+            byte[] value = (byte[]) arr.getValueArray(0, Math.min(arr.getLength(), 65536));
             if (value == null)
                 return null;
 
